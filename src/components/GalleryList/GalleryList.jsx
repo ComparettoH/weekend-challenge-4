@@ -25,17 +25,21 @@ function GalleryList () {
         fetchGallery()
     }, [])
 
-    
+   
     return (
-        <div>
-            <GalleryItem />
-            {
-            galleryItems.map(Item => (
+        <div className='Photo'>
+            {galleryItems.map(Item => (
                     <div key={Item.id}> 
-                        <img src={Item.path}/> && {Item.description}
+                    <GalleryItem 
+                        Item = {Item}
+                        fetchGallery={fetchGallery}/>
+                        <p className='photo'><img src={Item.path} onClick={togglePhoto}/> 
+                        </p>
                         <br></br>
-                        <button>👍 Like it!</button>
+                        <p className='like'>
+                            <button onClick={updateLikes}>👍 Like it!</button>
                         {Item.likes} people like this photo!
+                        </p>
                     </div>
                 ))
 }
