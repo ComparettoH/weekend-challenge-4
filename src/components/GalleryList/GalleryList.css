@@ -1,5 +1,9 @@
 img {
-    width: 25%;
+    width: 400px;
     height: auto;
+    border: 5px solid;
 }
 
+div {
+    display: inline-block;
+}

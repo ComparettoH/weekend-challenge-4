@@ -27,16 +27,18 @@ function GalleryList () {
 
    
     return (
-        <div className='Photo'>
+        <>
             {galleryItems.map(Item => (
+                <div className='Item.comp' key={Item.id}>
                     <div key={Item.id}> 
                     <GalleryItem 
                         Item = {Item}
                         fetchGallery={fetchGallery}/>
                     </div>
+                </div>
                 ))
             }
-        </div>
+        </>
 )}
 
 

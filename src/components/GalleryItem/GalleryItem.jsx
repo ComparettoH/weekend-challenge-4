@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import axios from 'axios';
+import './GalleryItem.css';
 
 function GalleryItem ({ Item, fetchGallery}){
 
@@ -29,16 +30,18 @@ function GalleryItem ({ Item, fetchGallery}){
     
     
     return (
-        <>
+    <>
+        <div>
             <div onClick={togglePhoto} className='photo'>
                 { photoInfo ? <p>{Item.description}</p> : <img src={Item.path}/>}
             </div>
             <br></br>
             <button onClick={updateLikes}>✴︎ Like it!</button>
-            <p>
+            <p className='likes'>
                 {Item.likes == 0 ? "No one has liked this photo" : `${Item.likes} people have liked this photo!`}
             </p>
-        </>
+        </div>
+    </>  
     )
 }
 

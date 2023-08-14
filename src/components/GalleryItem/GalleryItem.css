@@ -1,0 +1,29 @@
+.photo{
+    display: inline-block;
+    max-width: 400px;
+    padding: 20px;
+    background-color: rgb(230, 38, 134);
+    border: 5px dotted rgb(115, 255, 0);
+    border-radius: 5px;
+}
+
+p{
+    max-width: 400px;
+    text-align: center;
+    padding: 10px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background-color: black;
+    border-radius: 5px;
+    color: rgb(255, 233, 33);
+}
+
+.likes{
+    border: 2px solid orange;
+}
+
+button{
+    background-color: rgb(96, 26, 162);
+    color: rgb(254, 92, 17);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 40px;
+}
