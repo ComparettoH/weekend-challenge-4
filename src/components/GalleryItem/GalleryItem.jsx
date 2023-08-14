@@ -16,7 +16,7 @@ function GalleryItem ({ Item, fetchGallery}){
         console.log('adding a like!', Item.id)
         axios({
             method: 'PUT',
-            url: '/gallery/like/${Item.id}'
+            url: `/gallery/like/${Item.id}`
         })
         .then(response => {
             console.log('response from PUT', response)
@@ -26,29 +26,17 @@ function GalleryItem ({ Item, fetchGallery}){
             console.log('Error in PUT', error)
         })
     }
-
-
-        // determine if photo or descript
-        const PhotoOrDescript = () => {
-            if (Item.photoInfo){
-                return <img src={Item.path}/>;
-
-            } else {
-                return <p>{Item.description}</p>
-            }
-        }
-
     
     
     return (
         <>
-        <p onClick={togglePhoto} className='photo'>
-                {PhotoOrDescript()}
-            </p>
+            <div onClick={togglePhoto} className='photo'>
+                { photoInfo ? <p>{Item.description}</p> : <img src={Item.path}/>}
+            </div>
             <br></br>
-        <p className='like'>
-            <button onClick={updateLikes}>👍 Like it!</button>
-            {Item.likes} people like this photo!
+            <button onClick={updateLikes}>✴︎ Like it!</button>
+            <p>
+                {Item.likes == 0 ? "No one has liked this photo" : `${Item.likes} people have liked this photo!`}
             </p>
         </>
     )

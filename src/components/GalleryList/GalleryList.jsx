@@ -14,7 +14,7 @@ function GalleryList () {
         })
         .then( (response) => {
             setGalleryItems(response.data)
-            console.log('in fetchGallery', galleryItems)
+            // console.log('in fetchGallery', galleryItems)
         })
         .catch(function (error) {
             console.log('Error with GET:', error)
@@ -33,17 +33,10 @@ function GalleryList () {
                     <GalleryItem 
                         Item = {Item}
                         fetchGallery={fetchGallery}/>
-                        <p className='photo'><img src={Item.path} onClick={togglePhoto}/> 
-                        </p>
-                        <br></br>
-                        <p className='like'>
-                            <button onClick={updateLikes}>👍 Like it!</button>
-                        {Item.likes} people like this photo!
-                        </p>
                     </div>
                 ))
-}
-</div>
+            }
+        </div>
 )}
 
 
