@@ -1,12 +1,35 @@
-const galleryItems = require('../modules/gallery.data');
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+import GalleryItem from '../GalleryItem/GalleryItem';
 
+const [galleryItems, setGalleryItems] = useState([])
 
-function GalleryList (props) {
+    // GET path
+    const fetchGallery = () => {
+        axios({
+        method: 'GET',
+        url: '/gallery'
+        })
+        .then( (response) => {
+            setGalleryItems(response.data)
+            console.log('in fetchGallery', galleryItems)
+        })
+        .catch(function (error) {
+            console.log('Error with GET:', error)
+        })
+    }
 
+    useEffect( () => {
+        fetchGallery()
+    }, [])
+
+function GalleryList ({ galleryItems, setGalleryItems, fetchGallery}) {
+
+    
     return (
         <div>
             {
-            props.list.map(Item => (
+            galleryItems.map(Item => (
                     <div key={Item.id}> 
                         {Item.path} && {Item.description}
                         <br></br>
