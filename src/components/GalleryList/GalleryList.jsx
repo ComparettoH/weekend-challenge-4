@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import GalleryItem from '../GalleryItem/GalleryItem';
+import './GalleryList.css';
 
-const [galleryItems, setGalleryItems] = useState([])
+function GalleryList () {
+    const [galleryItems, setGalleryItems] = useState([])
 
     // GET path
     const fetchGallery = () => {
@@ -23,15 +25,14 @@ const [galleryItems, setGalleryItems] = useState([])
         fetchGallery()
     }, [])
 
-function GalleryList ({ galleryItems, setGalleryItems, fetchGallery}) {
-
     
     return (
         <div>
+            <GalleryItem />
             {
             galleryItems.map(Item => (
                     <div key={Item.id}> 
-                        {Item.path} && {Item.description}
+                        <img src={Item.path}/> && {Item.description}
                         <br></br>
                         <button>👍 Like it!</button>
                         {Item.likes} people like this photo!
